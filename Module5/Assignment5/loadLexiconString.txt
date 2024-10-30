@@ -1,0 +1,27 @@
+*****Need this for testing without a file*****
+
+
+
+
+//CAN TRY loadLexicon with a *trie*
+    public void loadLexicon(String file){
+
+        if(file == null){
+            throw new IllegalArgumentException();
+        }
+
+
+        lexicon = new TreeSet<String>();
+
+        
+        Scanner sc = new Scanner(file);
+        while (sc.hasNextLine()){
+                
+            String s = sc.nextLine().toUpperCase();
+            lexicon.add(s);
+            
+        }
+        sc.close();
+        
+        loaded = true;
+    }

@@ -1,0 +1,106 @@
+//FIXME change so path doesn't need to reset everytime, just does it at end
+    //FIXME remember to make word UPPERCASE!
+    private void dfsOnBoard(Position start, String word) {
+    
+        path = new ArrayList<Integer>();
+
+        word = word.toUpperCase();
+
+        boolean[][] visitedTemp = new boolean[grid.length][grid.length];
+        visited = visitedTemp;
+        //set all to false
+
+        String buildWord = "";
+        Deque<Position> stack = new ArrayDeque<>();
+        int le = grid[start.x][start.y].length();
+
+        //check first letter(s)
+        if((grid[start.x][start.y]).equals(word.substring(0,le))){
+            visit(start);
+            stack.addFirst(start);
+            buildWord+=grid[start.x][start.y];
+            buildWord+=grid[start.x][start.y];
+            //FIXME change adding twice due to remove later
+
+
+            path.add(4*start.x+start.y);
+            //FIXME 
+            
+        }
+        else{
+            Position next;
+            if(start.y+1==grid.length){
+                next = new Position(start.x+1,0);
+                //go to next row
+            }
+            else{
+                next = new Position(start.x,start.y+1);
+            }
+            
+            dfsOnBoard(next, word);
+            return;
+        }
+
+
+        //FIXME DO I NEED A STACK??
+        //boolean found;
+
+            //FIXME
+        //would there be a problem with a word like HEEL where the first e needs to be
+        //allowed to be revisited if going to second e first after h??
+
+        while (!stack.isEmpty()) {
+
+
+            
+            Position position = stack.removeFirst();
+            buildWord=buildWord.substring(0,buildWord.length()-grid[position.x][position.y].length());
+            if(buildWord.equals(word)){
+                return;
+            }
+            //Position position = stack.getFirst();
+            
+            //FIXME also need a dfs to find specfic word but that
+            //doesn't add visited unless it's part of word yet
+            for (Position neighbor : position.neighbors()) {
+                if (!isVisited(neighbor)) {
+
+                    buildWord+=grid[neighbor.x][neighbor.y];
+                    int l = buildWord.length();
+
+                    
+                    //FIXME
+                    
+
+
+                    if(word.length()>= buildWord.length() && (buildWord).equals(word.substring(0,l))){
+                        visit(neighbor);
+                        stack.addFirst(neighbor);
+                        buildWord+=grid[neighbor.x][neighbor.y];
+                        
+                        //FIXME
+                        
+
+                        path.add(neighbor.x*4 + neighbor.y);
+
+                        break;
+                    }
+                    else{
+                        buildWord=buildWord.substring(0,buildWord.length()-grid[position.x][position.y].length());
+                    }
+                }
+            }
+            
+        }
+
+        Position next;
+        if(start.y+1==grid.length){
+        next = new Position(start.x+1,0);
+            //go to next row
+        }
+        else{
+            next = new Position(start.x,start.y+1);
+        }
+        
+        dfsOnBoard(next, word);
+    }

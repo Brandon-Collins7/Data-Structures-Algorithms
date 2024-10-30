@@ -1,0 +1,12 @@
+getMinLadder()
+use queue for BFS. track visited elements
+Don't search the queue.
+enqueue neighbors
+(array deque)
+keep a scalable data structure of already-generated neighbors (HashSet)
+BFS "with memory" keep track of path taken
+because BFS, as soon as find word, have a min path. Node based queue
+
+
+store lexicon in trie, treeset, or hashset 
+

@@ -1,0 +1,30 @@
+[Executed at: Thu Oct 12 18:51:46 PDT 2023]
+
+
+
+** Correctness test results **
+testSetIntersection(LinkedSetTests): 
+LinkedSet test case - method intersection(Set<T> s)
+Verifying {1, 2, 3} intersection {2, 3, 1} is {1, 2, 3}
+Will attempt structural verification of all three sets.
+java.lang.NullPointerException
+
+testLinkedSetComplement(LinkedSetTests): 
+LinkedSet test case - method complement(LinkedSet<T> s)
+Verifying {1, 2, 3} complement {2, 3, 4} is {1}
+Will attempt structural verification of all three sets.
+Structural verification of: []. java.lang.AssertionError
+
+testSetComplement(LinkedSetTests): 
+LinkedSet test case - method complement(Set<T> s)
+Verifying {1, 2, 3} complement {2, 3, 1} is {}
+Will attempt structural verification of all three sets.
+java.lang.NullPointerException
+
+testSetUnion(LinkedSetTests): 
+LinkedSet test case - method union(Set<T> s)
+Verifying {1, 2, 3} union {2, 3, 1} is {1, 2, 3}
+Will attempt structural verification of all three sets.
+java.lang.NullPointerException
+
+Tests run: 19, Tests passed: 15, Tests failed: 4.

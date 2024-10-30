@@ -1,0 +1,34 @@
+
+
+//CAN TRY loadLexicon with a *trie*
+    public void loadLexicon(String file){
+
+        if(file == null){
+            throw new IllegalArgumentException();
+        }
+
+
+        lexicon = new TreeSet<String>();
+
+        
+        try{
+            Scanner sc = new Scanner(new File(file));
+            while (sc.hasNextLine()){
+                
+                String s = sc.next().toUpperCase();
+                lexicon.add(s);
+                sc.nextLine();
+
+            }
+            sc.close();
+        }
+        catch(FileNotFoundException e){
+            throw new IllegalArgumentException();
+        }
+        
+        loaded = true;
+    }
+
+
+
+
