@@ -1,0 +1,7 @@
+** Correctness test results **
+testByDescendingWeightOrder(TermTests): Testing Term byDescendingWeightOrder().
+Terms: (query	9223372036854775807), (query	1)
+
+
+
+prefix longer than query

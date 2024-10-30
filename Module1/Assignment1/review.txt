@@ -1,0 +1,17 @@
+Do I need to account for the null and length of 0 in the notes??
+What about IllegalArgumentException??
+
+can't throw IllegalArgumentException for methods when null array because can't use a method with a null object
+
+
+Employ generality? can't for min, max due to needing >= and <=
+***COULD add iterator method for linear scanning
+***Could also change to List and Collection
+
+
+
+String str = "abcdef";
+String str2 = "";
+for(int i = 0; i < str.length(); i++){
+    str2 = str.charAt(i) + str2;
+}
